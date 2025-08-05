@@ -9,6 +9,8 @@
          >
       </div>
    </div>
+
+   <button @click="$router.go(-1)">Back</button>
 </template>
 
 <script setup>
