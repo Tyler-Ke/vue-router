@@ -53,7 +53,7 @@
                </li>
             </ul>
             <form class="d-flex" role="search">
-               <a class="nav-link" aria-disabled="true">Login</a>
+               <router-link to="/login" class="nav-link" aria-disabled="true">Login</router-link>
             </form>
          </div>
       </div>
