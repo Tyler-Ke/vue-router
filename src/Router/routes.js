@@ -12,8 +12,9 @@ const router = createRouter({
          component: Homepage,
       },
       {
-         path: "/contact",
+         path: "/contact-us",
          component: Contact,
+         name: "contact"
       },
       {
          path: "/productlist",
@@ -22,6 +23,8 @@ const router = createRouter({
       {
          path: "/product/:productId/:categoryId?",
          component: ProductDetails,
+         name: "productDetails",
+         props: true,
       },
       {
          path: "/product",

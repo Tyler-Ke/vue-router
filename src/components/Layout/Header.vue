@@ -24,7 +24,7 @@
                   >
                </li>
                <li class="nav-item">
-                  <router-link class="nav-link" to="/contact"
+                  <router-link class="nav-link" :to="{name: 'contact'}"
                      >Contact Us</router-link
                   >
                </li>
