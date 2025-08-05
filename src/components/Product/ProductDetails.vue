@@ -8,7 +8,7 @@
          <p>No Product ID found</p>
       </div>
       <div v-if="route.params.productId">
-         <p>Category ID ID: {{ route.params.categoryId }}</p>
+         <p>Category ID: {{ route.params.categoryId }}</p>
       </div>
       <div v-else>
          <p>No Category ID found</p>
