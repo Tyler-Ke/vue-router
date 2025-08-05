@@ -5,6 +5,23 @@ import ProductList from "@/components/Product/ProductList.vue";
 import ProductDetails from "@/components/Product/ProductDetails.vue";
 import NotFound from "@/components/Layout/NotFound.vue";
 import Login from "@/components/Authentication/Login.vue";
+import NoAccess from "@/components/Layout/NoAccess.vue";
+
+function isAdmin() {
+   const isAdmin = false;
+
+   if (!isAdmin) {
+      return {name: "noaccess"}
+   }
+
+   return true;
+}
+
+function isAuthenticated() {
+   const isAuthenticated = true;
+
+   return isAuthenticated;
+}
 
 const router = createRouter({
    history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +43,8 @@ const router = createRouter({
       {
          path: "/productlist",
          component: ProductList,
+         name: "productlist",
+         beforeEnter: [isAdmin, isAuthenticated]
       },
       {
          path: "/product/:productId/:categoryId?",
@@ -46,24 +65,16 @@ const router = createRouter({
          component: Login,
          name: "login",
       },
+      {
+         path: "/noaccess",
+         component: NoAccess,
+         name: "noaccess",
+      },
    ],
 });
 
 router.beforeEach((to, from) => {
-   console.log("Global Before Each");
-   console.log(to, from);
-   //check if user is auth, else redirect to login
-   const isAuthenticated = false;
-   
-   if(to.name == "home") {
-      return true;
-   }
-
-   if(!isAuthenticated && to.name !=="login") {
-      return "/login"
-   };
-
-   return true;
+   return isAuthenticated;
 });
 
 export default router;
