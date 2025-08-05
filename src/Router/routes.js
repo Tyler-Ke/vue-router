@@ -8,10 +8,10 @@ import Login from "@/components/Authentication/Login.vue";
 import NoAccess from "@/components/Layout/NoAccess.vue";
 
 function isAdmin() {
-   const isAdmin = false;
+   const isAdmin = true;
 
    if (!isAdmin) {
-      return {name: "noaccess"}
+      return { name: "noaccess" };
    }
 
    return true;
@@ -29,7 +29,7 @@ const router = createRouter({
       {
          path: "/",
          component: Homepage,
-         name: "home"
+         name: "home",
       },
       {
          path: "/contact-us",
@@ -44,7 +44,7 @@ const router = createRouter({
          path: "/productlist",
          component: ProductList,
          name: "productlist",
-         beforeEnter: [isAdmin, isAuthenticated]
+         beforeEnter: [isAdmin, isAuthenticated],
       },
       {
          path: "/product/:productId/:categoryId?",
@@ -71,6 +71,7 @@ const router = createRouter({
          name: "noaccess",
       },
    ],
+   linkActiveClass: "active btn btn-primary",
 });
 
 router.beforeEach((to, from) => {
