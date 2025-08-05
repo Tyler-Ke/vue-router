@@ -45,7 +45,7 @@
                         >
                      </li>
                      <li>
-                        <router-link class="dropdown-item" to="#"
+                        <router-link class="dropdown-item" to="/product"
                            >Product Details</router-link
                         >
                      </li>
